@@ -49,3 +49,16 @@ body {
 .list-item-btn {
   text-align:right;
 }
+
+.menu-item a{
+  padding:10px 15px;
+  margin-left:5px;
+  border-top:2px solid transparent;
+  cursor:pointer;
+  color: #fff;
+}
+
+.menu-item a:hover {
+  border-top:2px solid #fff;
+  text-decoration:none;
+}
