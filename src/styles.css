@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background:#e6e6e6;
+}
+
+#menu {
+  padding: 15px 0px;
+  background:green;
+  text-align:right;
+}
+
+#menu ul {
+  list-style-type:none;
+  float:right;
+  margin-bottom:0px;
+}
+
+#menu ul li {
+  float: left;
+  display: inline-block;
+  padding:0px 20px;
+  margin:0px 10px;
+}
+
+.white-box {
+  margin-top:30px;
+  padding:30px;
+  background:#fff;
+}
+
+#list {
+  margin-top:10px;
+}
+
+.list-item {
+  padding: 10px;
+  border: 1px solid green;
+  margin-bottom: 5px;
+  background: #f1f1f1;
+  border-radius: 5px;
+
+}
+
+.list-item-info {
+  font-size:18px;
+}
+
+.list-item-btn {
+  text-align:right;
+}
