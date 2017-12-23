@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookEditComponent } from './book-edit.component';
+import { BookEditComponent } from './question-edit.component';
 
 describe('BookEditComponent', () => {
   let component: BookEditComponent;

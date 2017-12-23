@@ -2,21 +2,21 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css'],
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class BookComponent implements OnInit {
+export class QuestionComponent implements OnInit {
 
-  books: any;
+  questions: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/book').subscribe(data => {
+    this.http.get('/question').subscribe(data => {
       console.log(data);
-      this.books = data;
+      this.questions = data;
     });
   }
 

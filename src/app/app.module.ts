@@ -5,44 +5,44 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookCreateComponent } from './book-create/book-create.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+import { QuestionCreateComponent } from './question-create/question-create.component';
+import { QuestionEditComponent } from './question-edit/question-edit.component';
 
 const appRoutes: Routes = [
   {
-    path: 'books',
-    component: BookComponent,
+    path: 'questions',
+    component: QuestionComponent,
     data: { title: 'Book List' }
   },
   {
-    path: 'book-details/:id',
-    component: BookDetailComponent,
-    data: { title: 'Book Details' }
+    path: 'question-details/:id',
+    component: QuestionDetailComponent,
+    data: { title: 'Question Details' }
   },
   {
-    path: 'book-create',
-    component: BookCreateComponent,
+    path: 'question-create',
+    component: QuestionCreateComponent,
     data: { title: 'Create Book' }
   },
   {
-    path: 'book-edit/:id',
-    component: BookEditComponent,
+    path: 'question-edit/:id',
+    component: QuestionEditComponent,
     data: { title: 'Edit Book' }
   },
   { path: '',
-    redirectTo: '/books',
+    redirectTo: '/questions',
     pathMatch: 'full'
   }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
-    BookDetailComponent,
-    BookCreateComponent,
-    BookEditComponent
+    QuestionComponent,
+    QuestionDetailComponent,
+    QuestionCreateComponent,
+    QuestionEditComponent
   ],
   imports: [
     BrowserModule,
