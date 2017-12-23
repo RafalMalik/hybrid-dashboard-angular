@@ -5,11 +5,12 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var question = require('./routes/question');
+var game = require('./routes/game');
 var app = express();
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mean-angular5', { useMongoClient: true, promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://193.70.113.241:27017/hybrid-quiz', { useMongoClient: true, promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -19,6 +20,8 @@ app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/questions', express.static(path.join(__dirname, 'dist')));
 app.use('/question', question);
+app.use('/games', express.static(path.join(__dirname, 'dist')));
+app.use('/game', game);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
