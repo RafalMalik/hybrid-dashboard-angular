@@ -1,29 +1,36 @@
 <div class="container-fluid">
-  <div class="row" id="menu">
-    <div class="container">
-      <ul>
-        <li class="menu-item"><a [routerLink]="['/questions']">Pytania</a></li>
-        <li class="menu-item"><a [routerLink]="['/games']">Gry</a></li>
-        <li class="menu-item">O grze</li>
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/questions']">Pytania</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/games']">Gry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">O grze</a>
+        </li>
       </ul>
     </div>
-  </div>
+  </nav>
   <div class="container white-box">
     <div class="row">
-      <h1>Book List
-        <a [routerLink]="['/question-create']" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </a>
-      </h1>
+      <h2>Lista gier</h2>
     </div>
     <div id="list">
+      kurwa
       <div *ngFor="let game of games" class="row list-item">
         <div class="col-10 list-item-info">
           {{ game._id }}
         </div>
         <div class="col-2 list-item-btn">
           <a [routerLink]="['/game-details', game._id]">
-            <div class="btn btn-success btn-sm">Show Detail
+            <div class="btn btn-success btn-sm">Szczegóły
             </div>
           </a>
         </div>

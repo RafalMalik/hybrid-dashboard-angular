@@ -4,23 +4,22 @@ body {
   background:#e6e6e6;
 }
 
-#menu {
-  padding: 15px 0px;
-  background:green;
-  text-align:right;
+.container-fluid {
+  padding:0px;
 }
 
-#menu ul {
-  list-style-type:none;
-  float:right;
-  margin-bottom:0px;
+.nav-item {
+  padding:0px 30px;
+  font-weight:bold;
 }
 
-#menu ul li {
-  float: left;
-  display: inline-block;
-  padding:0px 20px;
-  margin:0px 10px;
+.nav-item a {
+  border-top:2px solid transparent;
+}
+
+.nav-item a:hover {
+  border-top:2px solid #fff;
+  color: #fff;
 }
 
 .white-box {
@@ -50,15 +49,16 @@ body {
   text-align:right;
 }
 
-.menu-item a{
-  padding:10px 15px;
-  margin-left:5px;
-  border-top:2px solid transparent;
-  cursor:pointer;
-  color: #fff;
-}
+@media screen and (max-width: 991px) {
+  .nav-item  {
+    padding:0px;
+  }
 
-.menu-item a:hover {
-  border-top:2px solid #fff;
-  text-decoration:none;
+  .nav-item a {
+    border-top:none;
+  }
+
+  .nav-item a:hover {
+    border-top:none;
+  }
 }

@@ -1,20 +1,45 @@
-<div class="container">
-  <h1>{{ question.content }}</h1>
-  <dl class="list">
-    <dt>A</dt>
-    <dd>{{ question.a }}</dd>
-    <dt>B</dt>
-    <dd>{{ question.b }}</dd>
-    <dt>C</dt>
-    <dd>{{ question.c }}</dd>
-    <dt>D</dt>
-    <dd>{{ question.d }}</dd>
-    <dd>{{ question.created_date }}</dd>
-  </dl>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <a [routerLink]="['/question-edit', question._id]" class="btn btn-success">EDIT</a>
-    <button class="btn btn-danger" type="button" (click)="deleteQuestion(question._id)">DELETE</button>
+<div class="container-fluid">
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/questions']">Pytania</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/games']">Gry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">O grze</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container white-box">
+    <div class="row">
+      <h1>{{ question.content }}</h1>
+      <dl class="list">
+        <dt>A</dt>
+        <dd>{{ question.a }}</dd>
+        <dt>B</dt>
+        <dd>{{ question.b }}</dd>
+        <dt>C</dt>
+        <dd>{{ question.c }}</dd>
+        <dt>D</dt>
+        <dd>{{ question.d }}</dd>
+        <dd>{{ question.created_date }}</dd>
+      </dl>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/question-edit', question._id]" class="btn btn-success">EDIT</a>
+        <button class="btn btn-danger" type="button" (click)="deleteQuestion(question._id)">DELETE</button>
+      </div>
+    </div>
   </div>
 </div>

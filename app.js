@@ -22,6 +22,7 @@ app.use('/questions', express.static(path.join(__dirname, 'dist')));
 app.use('/question', question);
 app.use('/games', express.static(path.join(__dirname, 'dist')));
 app.use('/game', game);
+app.use('/about', express.static(path.join(__dirname, 'dist')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

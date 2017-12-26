@@ -11,6 +11,7 @@ import {QuestionCreateComponent} from './question-create/question-create.compone
 import {QuestionEditComponent} from './question-edit/question-edit.component';
 import {GameComponent} from './game/game.component';
 import {GameDetailComponent} from './game-detail/game-detail.component';
+import {AboutComponent} from './about/about.component';
 
 
 const appRoutes: Routes = [
@@ -45,6 +46,11 @@ const appRoutes: Routes = [
     data: {title: 'Game List'}
   },
   {
+    path: 'about',
+    component: AboutComponent,
+    data: {title: 'Game List'}
+  },
+  {
     path: '',
     redirectTo: '/questions',
     pathMatch: 'full'
@@ -59,7 +65,8 @@ const appRoutes: Routes = [
     QuestionCreateComponent,
     QuestionEditComponent,
     GameComponent,
-    GameDetailComponent
+    GameDetailComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
