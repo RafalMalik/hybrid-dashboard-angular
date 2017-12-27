@@ -28,7 +28,8 @@ export class QuestionEditComponent implements OnInit {
   updateQuestion(id, data) {
     this.http.put('/question/' + id, data)
       .subscribe(res => {
-          this.router.navigate(['/questions']);
+          let id = res['_id'];
+          this.router.navigate(['/question-detail', id]);
         }, (err) => {
           console.log(err);
         }

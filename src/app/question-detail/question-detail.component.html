@@ -22,18 +22,22 @@
   </nav>
   <div class="container white-box">
     <div class="row">
-      <h1>{{ question.content }}</h1>
-      <dl class="list">
-        <dt>A</dt>
-        <dd>{{ question.a }}</dd>
-        <dt>B</dt>
-        <dd>{{ question.b }}</dd>
-        <dt>C</dt>
-        <dd>{{ question.c }}</dd>
-        <dt>D</dt>
-        <dd>{{ question.d }}</dd>
-        <dd>{{ question.created_date }}</dd>
-      </dl>
+      <div class="col-md-12">
+        <h3>{{ question.content }}</h3>
+      </div>
+      <div class="col-md-12">
+        A) {{ question.a }}
+      </div>
+      <div class="col-md-12">
+        B) {{ question.b }}
+      </div>
+      <div class="col-md-12">
+        C) {{ question.c }}
+      </div>
+      <div class="col-md-12">
+        D) {{ question.d }}
+      </div>
+      {{ question.t }}
     </div>
     <div class="row">
       <div class="col-md-12">

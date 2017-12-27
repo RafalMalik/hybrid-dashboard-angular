@@ -24,13 +24,14 @@
     <div class="row" id="list">
       <div class="col">
         <div class="row">
+          <h2>Lista pytań </h2>
           <a [routerLink]="['/question-create']">
-            <div class="btn btn-success">Dodaj</div>
+            <div class="btn btn-success btn-sm pull-right">Dodaj</div>
           </a>
         </div>
         <div *ngFor="let question of questions" class="row list-item">
           <div class="col-10 list-item-info">
-            {{ question._id }}
+            {{ question.content }}
           </div>
           <div class="col-2 list-item-btn">
             <a [routerLink]="['/question-details', question._id]">
