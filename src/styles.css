@@ -49,6 +49,10 @@ body {
   text-align:right;
 }
 
+.active {
+  border-top:2px solid #fff !important;
+}
+
 @media screen and (max-width: 991px) {
   .nav-item  {
     padding:0px;
