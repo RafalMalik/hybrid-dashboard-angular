@@ -17,38 +17,31 @@ import {AboutComponent} from './about/about.component';
 const appRoutes: Routes = [
   {
     path: 'questions',
-    component: QuestionComponent,
-    data: {title: 'Book List'}
+    component: QuestionComponent
   },
   {
-    path: 'question-details/:id',
-    component: QuestionDetailComponent,
-    data: {title: 'Question Details'}
+    path: 'question-detail/:id',
+    component: QuestionDetailComponent
   },
   {
     path: 'question-create',
-    component: QuestionCreateComponent,
-    data: {title: 'Create Book'}
+    component: QuestionCreateComponent
   },
   {
     path: 'question-edit/:id',
-    component: QuestionEditComponent,
-    data: {title: 'Edit Book'}
+    component: QuestionEditComponent
   },
   {
     path: 'games',
-    component: GameComponent,
-    data: {title: 'Game List'}
+    component: GameComponent
   },
   {
-    path: 'game-details/:id',
-    component: GameDetailComponent,
-    data: {title: 'Game List'}
+    path: 'game-detail/:id',
+    component: GameDetailComponent
   },
   {
     path: 'about',
-    component: AboutComponent,
-    data: {title: 'Game List'}
+    component: AboutComponent
   },
   {
     path: '',

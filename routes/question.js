@@ -29,6 +29,8 @@ router.post('/', function(req, res, next) {
 
 /* UPDATE BOOK */
 router.put('/:id', function(req, res, next) {
+  console.log(req.params.id);
+  console.log(req.body);
   Question.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);

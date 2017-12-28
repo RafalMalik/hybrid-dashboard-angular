@@ -26,9 +26,9 @@ export class QuestionEditComponent implements OnInit {
   }
 
   updateQuestion(id, data) {
-    console.log(this.question);
-
-    this.http.put('/question/' + id, data)
+    console.log('DATA KURWA');
+    console.log(data);
+    this.http.put('/question/' + id, this.question)
       .subscribe(res => {
           let id = res['_id'];
           this.router.navigate(['/questions']);
