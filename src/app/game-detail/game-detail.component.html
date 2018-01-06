@@ -30,20 +30,27 @@
 <div class="container-fluid">
   <div class="container white-box">
     <div class="row">
-      <div class="row">
-        <div class="col-md-6 col-sm-8 col-xs-9">
-          <h2>Szczegóły gry</h2>
-        </div>
-        <div class="col-md-6 col-sm-4- col-xs-3">
-          <a [routerLink]="['/question-create']">
-            <div class="btn btn-success btn-sm pull-right">Dodaj</div>
-          </a>
-        </div>
-      </div>
+      <h2>Szczegóły gry</h2>KURWA
     </div>
 
     <div class="row" id="game-details">
-      {{ game|json }}
+      <div class="col-md-3 text-center">
+        <div *ngFor="let answer of game.player1.answers" class="col-md-12">
+          {{ answer.value }}
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <div *ngFor="let question of game.questions" class="col-md-12">
+          {{ question.content }}
+          {{1 }}
+        </div>
+
+      </div>
+      <div class="col-md-3 text-center">
+        <div *ngFor="let answer of game.player2.answers" class="col-md-12">
+          {{ answer.value }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
