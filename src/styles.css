@@ -1,68 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background:#e6e6e6;
+  background: #e6e6e6;
 }
 
 .container-fluid {
-  padding:0px;
+  padding: 0px;
 }
 
-.nav-item {
-  padding:0px 30px;
-  font-weight:bold;
-}
-
-.nav-item a {
-  border-top:2px solid transparent;
-}
-
-.nav-item a:hover {
-  border-top:2px solid #fff;
-  color: #fff;
+h2 {
+  margin-top: 5px;
 }
 
 .white-box {
-  margin-top:30px;
-  padding:30px;
-  background:#fff;
+  margin-top: 90px;
+  padding: 30px;
+  background: #fff;
 }
 
 #list {
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .list-item {
   padding: 10px;
-  border: 1px solid green;
+  border: 1px solid #a0a9a0;
   margin-bottom: 5px;
-  background: #f1f1f1;
-  border-radius: 5px;
+  background: #f3f3f3;
 
 }
 
 .list-item-info {
-  font-size:18px;
+  font-size: 18px;
 }
 
 .list-item-btn {
-  text-align:right;
+  text-align: right;
 }
 
 .active {
-  border-top:2px solid #fff !important;
+  color: #fff !important;
 }
 
+.single-answer {
+  padding:7px;
+  font-size:18px;
+  border:1px solid #e6e6e6;
+}
+
+.single-answer-label {
+  text-align:center;
+  font-weight:bold;
+  font-size:22px;
+}
+
+.single-answer-result {
+  text-align:center;
+}
+
+.glyphicon-ok {
+  color: green;
+}
+
+.glyphicon-remove {
+  color: red;
+}
+
+
+
 @media screen and (max-width: 991px) {
-  .nav-item  {
-    padding:0px;
-  }
 
-  .nav-item a {
-    border-top:none;
-  }
-
-  .nav-item a:hover {
-    border-top:none;
-  }
 }

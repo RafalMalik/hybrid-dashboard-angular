@@ -1,11 +1,17 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/questions']">Pytania</a>
         </li>
@@ -16,26 +22,31 @@
           <a class="nav-link" [routerLink]="['/about']">O grze</a>
         </li>
       </ul>
-    </div>
-  </nav>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+
+<div class="container-fluid">
   <div class="container white-box">
     <div class="row">
-      <h2>Lista gier</h2>
+      <h2>Historia gier</h2>
     </div>
-    <div id="list">
-      kurwa
-      <div *ngFor="let game of games" class="row list-item">
-        <div class="col-10 list-item-info">
-          {{ game._id }}
-        </div>
-        <div class="col-2 list-item-btn">
-          <a [routerLink]="['/game-details', game._id]">
-            <div class="btn btn-success btn-sm">Szczegóły
-            </div>
-          </a>
+
+    <div class="row" id="list">
+      <div *ngFor="let game of games" class="col-md-12 list-item">
+        <div class="row">
+          <div class="col-md-10 list-item-info">
+            {{ game._id }}
+          </div>
+          <div class="col-md-2 list-item-btn">
+            <a [routerLink]="['/game-detail', game._id]">
+              <div class="btn btn-success btn-sm">Szczegóły</div>
+            </a>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
-
 </div>

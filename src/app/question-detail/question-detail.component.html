@@ -1,13 +1,17 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+              aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Hybrid Quiz Dashboard</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" [routerLink]="['/questions']">Pytania</a>
         </li>
@@ -18,31 +22,76 @@
           <a class="nav-link" [routerLink]="['/about']">O grze</a>
         </li>
       </ul>
-    </div>
-  </nav>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+
+<div class="container-fluid">
   <div class="container white-box">
     <div class="row">
-      <div class="col-md-12">
-        <h3>{{ question.content }}</h3>
+      <div class="row">
+        <div class="col-md-6 col-sm-8 col-xs-9">
+          <h2>Szczegóły pytania </h2>
+        </div>
+        <div class="col-md-6 col-sm-4- col-xs-3">
+          <button class="btn btn-danger btn-sm pull-right" type="button" (click)="deleteQuestion(question._id)" style="margin-left:15px;">Usuń</button>
+          <a [routerLink]="['/question-edit', question._id]" class="btn btn-success btn-sm pull-right" >Edytuj</a>
+        </div>
       </div>
-      <div class="col-md-12">
-        A) {{ question.a }}
-      </div>
-      <div class="col-md-12">
-        B) {{ question.b }}
-      </div>
-      <div class="col-md-12">
-        C) {{ question.c }}
-      </div>
-      <div class="col-md-12">
-        D) {{ question.d }}
-      </div>
-      {{ question.t }}
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <a [routerLink]="['/question-edit', question._id]" class="btn btn-success">EDIT</a>
-        <button class="btn btn-danger" type="button" (click)="deleteQuestion(question._id)">DELETE</button>
+
+    <div class="row" id="question-details">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3>{{ question.content }}</h3>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12 single-answer">
+            <p class="single-answer-label">A)</p>
+            <div class="single-answer-content">
+              {{ question.a }}
+            </div>
+            <div class="single-answer-result">
+              <span class='{{ question.t == "A" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12 single-answer">
+            <p class="single-answer-label">B)</p>
+            <div class="single-answer-content">
+              {{ question.b }}
+            </div>
+            <div class="single-answer-result">
+              <span class='{{ question.t == "B" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12 single-answer">
+            <p class="single-answer-label">C)</p>
+            <div class="single-answer-content">
+              {{ question.c }}
+            </div>
+            <div class="single-answer-result">
+              <span class='{{ question.t == "C" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="col-md-12 single-answer">
+            <p class="single-answer-label">D)</p>
+            <div class="single-answer-content">
+              {{ question.d }}
+            </div>
+            <div class="single-answer-result">
+              <span class='{{ question.t == "D" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
