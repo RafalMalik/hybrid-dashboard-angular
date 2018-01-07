@@ -12,6 +12,7 @@ export class GameDetailComponent implements OnInit {
 
   game;
   tableData = [];
+  result;
 
   constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient) {
   }
@@ -24,6 +25,7 @@ export class GameDetailComponent implements OnInit {
     this.http.get('/game/' + id).subscribe(data => {
       this.game = data;
       this.parseData(data);
+      this.result = this.getResult();
     });
   }
 
@@ -47,6 +49,7 @@ export class GameDetailComponent implements OnInit {
         }
       });
     }
+
   }
 
   getCorrectAnswerContent(i) {
@@ -83,5 +86,14 @@ export class GameDetailComponent implements OnInit {
     return 0;
   }
 
+  getResult() {
+    if (this.game.player1.points > this.game.player2.points) {
+      return 1;
+    } else if (this.game.player2.points > this.game.player1.points) {
+      return 2;
+    } else {
+      return 0;
+    }
+  }
 
 }

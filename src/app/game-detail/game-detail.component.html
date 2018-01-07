@@ -33,43 +33,81 @@
       <h2>Szczegóły gry</h2>
     </div>
 
-    <div class="row">
-      {{ game|json }}
-    </div>
-
     <div class="row" id="game-details">
-      <div class="row">
+      <div class="col-md-12">
 
         <div class="col-md-3 text-center">
           <div class="col-md-12">
-            {{ game.player1.avatar }}
+            <img src="{{ game.player1.avatar }}" class="img-circle player-avatar" alt="avatar">
           </div>
-          <div class="col-md-12">
-            {{ game.player1.time }}
+          <div class="col-md-12 player-points">
+            <b>Punkty: </b> {{ game.player1.points }}
           </div>
-          <div class="col-md-12">
-            {{ game.player1.points }}
+          <div class="col-md-12 player-result" [ngSwitch]="result">
+
+            <div class="col-md-12 player-draw" *ngSwitchCase="0">
+              <span class="glyphicon glyphicon-minus"></span>
+              REMIS
+            </div>
+            <div class="col-md-12 player-lose" *ngSwitchCase="2">
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+              PRZEGRANA
+            </div>
+            <div class="col-md-12 player-win" *ngSwitchCase="1">
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+              WYGRANA
+            </div>
+
+          </div>
+          <div class="col-md-12 player-time">
+            <b>Czas: </b> {{ game.player1.time }}
+            <span
+              class='{{ game.player1.time > 0 ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
           </div>
         </div>
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center game-status">
           <div class="col-md-12">
-            {{ game._id }}
+            <b>ID:</b> {{ game._id }}
           </div>
           <div class="col-md-12">
-            {{ game.ends }} {{ game.status }}
+            <b>Data:</b> {{ game.created_date| date: 'hh:mm dd.MM.yyyy'}}
+          </div>
+          <div class="col-md-12">
+            <b>Status:</b> {{ game.status == 0 ? "Niezakonczona" : "Zakonczona" }}
+          </div>
+          <div class="col-md-12">
+            <b>Ukonczonych gier:</b> {{ game.ends }}
           </div>
         </div>
 
         <div class="col-md-3 text-center">
           <div class="col-md-12">
-            {{ game.player2.avatar }}
+            <img src="{{ game.player2.avatar }}" class="img-circle player-avatar" alt="avatar">
           </div>
-          <div class="col-md-12">
-            {{ game.player2.time }}
+          <div class="col-md-12 player-points">
+            <b>Punkty: </b> {{ game.player2.points }}
           </div>
-          <div class="col-md-12">
-            {{ game.player2.points }}
+          <div class="col-md-12 player-result" [ngSwitch]="result">
+
+            <div class="col-md-12 player-draw" *ngSwitchCase="0">
+              <span class="glyphicon glyphicon-minus"></span>
+              REMIS
+            </div>
+            <div class="col-md-12 player-lose" *ngSwitchCase="1">
+              <span class="glyphicon glyphicon-thumbs-down"></span>
+              PRZEGRANA
+            </div>
+            <div class="col-md-12 player-win" *ngSwitchCase="2">
+              <span class="glyphicon glyphicon-thumbs-up"></span>
+              WYGRANA
+            </div>
+
+          </div>
+          <div class="col-md-12 player-time">
+            <b>Czas: </b> {{ game.player2.time }}
+            <span
+              class='{{ game.player2.time > 0 ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
           </div>
         </div>
 
@@ -79,26 +117,29 @@
       <div *ngFor="let row of tableData" class="col-md-12 result-row">
         <div class="col-md-3 text-center">
           <div class="col-md-12">
-            {{ row.player1.answer_char }}
+            <b>{{ row.player1.answer_char }})</b> {{ row.player1.answer_content }}
           </div>
           <div class="col-md-12">
-            {{ row.player1.answer_content }}
+            <span
+              class='{{ row.player1.correct ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
           </div>
         </div>
         <div class="col-md-6 text-center">
           <div class="col-md-12">
-            {{ row.question }}: {{ row.answer_char }}
+            {{ row.question }}
           </div>
           <div class="col-md-12">
+            <b>{{ row.answer_char }})</b>
             {{ row.answer_content }}
           </div>
         </div>
         <div class="col-md-3 text-center">
           <div class="col-md-12">
-            {{ row.player2.answer_char }}
+            <b>{{ row.player2.answer_char }})</b> {{ row.player2.answer_content }}
           </div>
           <div class="col-md-12">
-            {{ row.player2.answer_content }}
+            <span
+              class='{{ row.player2.correct ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"}}'></span>
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ h2 {
 
 .white-box {
   margin-top: 90px;
+  margin-bottom: 90px;
   padding: 30px;
   background: #fff;
 }
@@ -43,19 +44,19 @@ h2 {
 }
 
 .single-answer {
-  padding:7px;
-  font-size:18px;
-  border:1px solid #e6e6e6;
+  padding: 7px;
+  font-size: 18px;
+  border: 1px solid #e6e6e6;
 }
 
 .single-answer-label {
-  text-align:center;
-  font-weight:bold;
-  font-size:22px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .single-answer-result {
-  text-align:center;
+  text-align: center;
 }
 
 .glyphicon-ok {
@@ -67,9 +68,51 @@ h2 {
 }
 
 .result-row {
-  border:1px solid #222;
+  padding: 15px 0px;
+  border-top: 1px solid silver;
 }
 
+.player-avatar {
+  width: 100px;
+  height: 100px;
+}
+
+#game-details {
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.player-points {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.player-time {
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.player-result {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.player-draw {
+  color: #ffc107 !important;
+}
+
+.player-win {
+  color: #28a745 !important;
+}
+
+.player-lose {
+  color: #dc3545 !important;
+}
+
+.game-status {
+  padding-top: 30px;
+}
 
 @media screen and (max-width: 991px) {
 
