@@ -18,7 +18,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
+app.set('view engine', 'ejs');
 app.use('/questions', express.static(path.join(__dirname, 'dist')));
+app.use('/question-create', express.static(path.join(__dirname, 'dist')));
+
 app.use('/question', question);
 app.use('/games', express.static(path.join(__dirname, 'dist')));
 app.use('/game', game);
@@ -26,9 +29,7 @@ app.use('/about', express.static(path.join(__dirname, 'dist')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  res.redirect('/questions')
 });
 
 // error handler
@@ -39,7 +40,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json(err.message);
 });
 
 module.exports = app;
