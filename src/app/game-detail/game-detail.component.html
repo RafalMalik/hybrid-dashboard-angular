@@ -30,27 +30,81 @@
 <div class="container-fluid">
   <div class="container white-box">
     <div class="row">
-      <h2>Szczegóły gry</h2>KURWA
+      <h2>Szczegóły gry</h2>
+    </div>
+
+    <div class="row">
+      {{ game|json }}
     </div>
 
     <div class="row" id="game-details">
-      <div class="col-md-3 text-center">
-        <div *ngFor="let answer of game.player1.answers" class="col-md-12">
-          {{ answer.value }}
+      <div class="row">
+
+        <div class="col-md-3 text-center">
+          <div class="col-md-12">
+            {{ game.player1.avatar }}
+          </div>
+          <div class="col-md-12">
+            {{ game.player1.time }}
+          </div>
+          <div class="col-md-12">
+            {{ game.player1.points }}
+          </div>
         </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <div *ngFor="let question of game.questions" class="col-md-12">
-          {{ question.content }}
-          {{1 }}
+
+        <div class="col-md-6 text-center">
+          <div class="col-md-12">
+            {{ game._id }}
+          </div>
+          <div class="col-md-12">
+            {{ game.ends }} {{ game.status }}
+          </div>
+        </div>
+
+        <div class="col-md-3 text-center">
+          <div class="col-md-12">
+            {{ game.player2.avatar }}
+          </div>
+          <div class="col-md-12">
+            {{ game.player2.time }}
+          </div>
+          <div class="col-md-12">
+            {{ game.player2.points }}
+          </div>
         </div>
 
       </div>
-      <div class="col-md-3 text-center">
-        <div *ngFor="let answer of game.player2.answers" class="col-md-12">
-          {{ answer.value }}
+
+
+      <div *ngFor="let row of tableData" class="col-md-12 result-row">
+        <div class="col-md-3 text-center">
+          <div class="col-md-12">
+            {{ row.player1.answer_char }}
+          </div>
+          <div class="col-md-12">
+            {{ row.player1.answer_content }}
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="col-md-12">
+            {{ row.question }}: {{ row.answer_char }}
+          </div>
+          <div class="col-md-12">
+            {{ row.answer_content }}
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="col-md-12">
+            {{ row.player2.answer_char }}
+          </div>
+          <div class="col-md-12">
+            {{ row.player2.answer_content }}
+          </div>
         </div>
       </div>
+
+
     </div>
+
   </div>
 </div>
