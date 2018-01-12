@@ -30,27 +30,32 @@ export class GameDetailComponent implements OnInit {
   }
 
   parseData(data) {
+    console.log(data);
     for (let i = 0; i < this.game.settings.round; i++) {
-      this.tableData.push({
-        'question': this.game.questions[i].content,
-        'answer_content': this.getCorrectAnswerContent(i),
-        'answer_char': this.game.questions[i].t,
-        'player1': {
-          'avatar': '',
-          'answer_content': this.getPlayerAnswerContent(i, 1),
-          'answer_char': this.game.player1.answers[i].value,
-          'correct': this.game.questions[i].t === this.game.player1.answers[i].value ? true : false
-        },
-        'player2': {
-          'avatar': '',
-          'answer_content': this.getPlayerAnswerContent(i, 2),
-          'answer_char': this.game.player2.answers[i].value,
-          'correct': this.game.questions[i].t === this.game.player2.answers[i].value ? true : false
-        }
-      });
+      let player1value =
+
+
+        this.tableData.push({
+          'question': this.game.questions[i].content,
+          'answer_content': this.getCorrectAnswerContent(i),
+          'answer_char': this.game.questions[i].t,
+          'player1': {
+            'answer_content': this.getPlayerAnswerContent(1, i),
+            'answer_char': this.getPlayerAnswerChar(1, i),
+            'correct': this.isPlayerCorrectAnswer(1, i)
+          },
+          'player2': {
+            'answer_content': this.getPlayerAnswerContent(2, i),
+            'answer_char': this.getPlayerAnswerChar(2, i),
+            'correct': this.isPlayerCorrectAnswer(2, i)
+          }
+        });
     }
 
+    console.log(this.tableData);
+
   }
+
 
   getCorrectAnswerContent(i) {
     switch (this.game.questions[i].t.toUpperCase()) {
@@ -66,10 +71,47 @@ export class GameDetailComponent implements OnInit {
     return 0;
   }
 
-  getPlayerAnswerContent(i, player) {
-    let mode = this.game.player1.answers[i].value.toUpperCase();
 
-    if (player === 2) {
+  isPlayerCorrectAnswer(player, i) {
+    if (player === 1) {
+      if (i in this.game.player1.answers) {
+        return this.game.questions[i].t === this.game.player1.answers[i].value ? true : false;
+      }
+      return false;
+    }
+
+    if (i in this.game.player2.answers) {
+      return this.game.questions[i].t === this.game.player2.answers[i].value ? true : false;
+    }
+    return false;
+  }
+
+  getPlayerAnswerChar(player, i) {
+    if (player === 1) {
+      if (i in this.game.player1.answers) {
+        return this.game.player1.answers[i].value;
+      }
+      return 'x';
+    }
+
+    if (i in this.game.player2.answers) {
+      return this.game.player2.answers[i].value;
+    }
+    return 'x';
+  }
+
+  getPlayerAnswerContent(player, i) {
+    let mode;
+
+    if (player === 1) {
+      if (!(i in this.game.player1.answers)) {
+        return '-';
+      }
+      mode = this.game.player1.answers[i].value.toUpperCase();
+    } else {
+      if (!(i in this.game.player2.answers)) {
+        return '-';
+      }
       mode = this.game.player2.answers[i].value.toUpperCase();
     }
 
