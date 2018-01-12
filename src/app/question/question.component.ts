@@ -15,7 +15,6 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('/question').subscribe(data => {
-      console.log(data);
       this.questions = data;
     });
   }

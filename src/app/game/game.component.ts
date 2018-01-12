@@ -15,7 +15,6 @@ export class GameComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('/game').subscribe(data => {
-      console.log(data);
       this.games = data;
     });
   }

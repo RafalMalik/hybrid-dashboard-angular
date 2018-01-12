@@ -18,10 +18,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
-app.set('view engine', 'ejs');
 app.use('/questions', express.static(path.join(__dirname, 'dist')));
 app.use('/question-create', express.static(path.join(__dirname, 'dist')));
-
 app.use('/question', question);
 app.use('/games', express.static(path.join(__dirname, 'dist')));
 app.use('/game', game);
